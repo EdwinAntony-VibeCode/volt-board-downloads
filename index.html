@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1115">
+<title>Volt Board | Ed-ThinkLab</title>
+<meta name="description" content="Volt Board by Edwin Antony and Ed-ThinkLab. Your digital creative whiteboard.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --bg:#0b1115;
+ --surface:#142027;
+ --lime:#d7ff38;
+ --white:#f5f8f3;
+ --muted:#9aa9ad;
+ --border:#ffffff14;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:Inter,sans-serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b1115ed;backdrop-filter:blur(15px);border-bottom:1px solid var(--border)}
+nav{height:72px;display:flex;justify-content:space-between;align-items:center}
+.logo{font:700 23px "Space Grotesk";letter-spacing:-1px}
+.logo span,.lime{color:var(--lime)}
+.links{display:flex;gap:25px}
+.links a{color:var(--muted);font-size:13px}
+.links a:hover{color:var(--lime)}
+.btn{display:inline-block;background:var(--lime);color:#111900;padding:14px 23px;border-radius:9px;font-weight:800;font-size:14px;transition:.2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px #d7ff3830}
+.btn-outline{background:transparent;color:white;border:1px solid var(--border)}
+.hero{padding:100px 0 90px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:45px}
+.eyebrow{font-size:11px;letter-spacing:3px;color:var(--lime);font-weight:800;text-transform:uppercase;margin-bottom:20px}
+h1,h2,h3{font-family:"Space Grotesk";line-height:1.15}
+h1{font-size:clamp(43px,6vw,75px);letter-spacing:-3px}
+h1 span,h2 span{color:var(--lime)}
+.hero p{color:var(--muted);margin:23px 0 28px;max-width:480px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.preview{border-radius:28px;padding:10px;max-width:320px;width:100%;height:auto;margin:auto;transform:rotate(3deg);box-shadow:0 30px 80px #0008; border: 1px solid var(--border); background: var(--surface); transition: transform 0.4s ease;}
+.preview:hover { transform: rotate(0deg) scale(1.02); border-color: var(--lime); }
+.preview img { width: 100%; border-radius: 18px; display: block; object-fit: cover; }
+
+section{padding:80px 0}
+.section-head{text-align:center;max-width:650px;margin:0 auto 40px}
+.section-head h2{font-size:clamp(30px,4vw,45px)}
+.section-head p{color:var(--muted);font-size:14px;margin-top:14px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);padding:25px;border-radius:15px}
+.card .icon{font-size:25px;color:var(--lime);margin-bottom:16px}
+.card h3{font-size:18px;margin-bottom:10px}
+.card p{font-size:13px;color:var(--muted)}
+.showcase{background:#111c21;border-block:1px solid var(--border)}
+.showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+.showcase p{color:var(--muted);font-size:14px;margin:20px 0}
+.checks{list-style:none;display:grid;gap:12px;font-size:14px}
+.checks li:before{content:"✓";color:var(--lime);margin-right:12px}
+
+.gallery-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;}
+.gallery-item {border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: all 0.3s ease; background: var(--surface);}
+.gallery-item img {width: 100%; height: auto; display: block; object-fit: cover;}
+.gallery-item:hover {transform: translateY(-8px); border-color: var(--lime); box-shadow: 0 15px 40px rgba(215, 255, 56, 0.15);}
+
+.board{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:30px; min-height:240px; text-align: center;}
+.board img { width: 100%; max-width: 250px; border-radius: 12px; margin-top: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+.board h3{font-size:26px}
+.board p{color:var(--muted)}
+
+.download-box{background:var(--surface);border:1px solid #d7ff3840;border-radius:20px;padding:55px 20px;text-align:center}
+.download-box h2{font-size:clamp(30px,5vw,45px)}
+.download-box p{color:var(--muted);margin:17px auto 27px;max-width:500px;font-size:14px}
+.small{font-size:12px;color:var(--muted);margin-top:16px}
+.faq{max-width:750px;margin:auto;display:grid;gap:12px}
+details{background:var(--surface);border:1px solid var(--border);padding:19px;border-radius:12px}
+summary{cursor:pointer;font-weight:700;font-size:14px}
+details p{font-size:13px;color:var(--muted);margin-top:12px}
+footer{border-top:1px solid var(--border);padding:40px 0}
+.footer-grid{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+footer p{color:var(--muted);font-size:12px;margin-top:8px}
+.social{display:flex;gap:18px;flex-wrap:wrap}
+.social a{font-size:13px;color:var(--muted)}
+.social a:hover{color:var(--lime)}
+.credit{text-align:center;border-top:1px solid var(--border);margin-top:30px;padding-top:22px;color:var(--muted);font-size:12px}
+.credit strong{color:var(--lime)}
+@media(max-width:700px){
+ .links{gap:12px}
+ .links a{font-size:11px}
+ .hero{padding:65px 0}
+ .hero-grid,.showcase-grid{grid-template-columns:1fr}
+ .preview{margin-top:20px}
+ .features{grid-template-columns:1fr}
+ section{padding:60px 0}
+ .footer-grid{flex-direction:column}
+}
+@media(max-width:390px){.links{gap:8px}.links a{font-size:10px}.logo{font-size:19px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="container">
+  <nav>
+   <a class="logo" href="#">VOLT<span>.</span>BOARD</a>
+   <div class="links">
+    <a href="#features">Features</a>
+    <a href="#interface">Interface</a>
+    <a href="#about">About</a>
+    <a href="#download">Download</a>
+   </div>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow">An Ed-ThinkLab creation</div>
+   <h1>Think freely.<br><span>Create anything.</span></h1>
+   <p>Your digital creative space. Draw, write, sketch and bring your ideas to life with Volt Board.</p>
+   <div class="actions">
+    <a class="btn" href="#download">↓ Download Volt Board</a>
+    <a class="btn btn-outline" href="#interface">View Interface</a>
+   </div>
+   <p class="small">Created by Edwin Antony · Android app</p>
+  </div>
+  <div class="preview">
+   <img src="Screenshot_20261107-153700_VoltBoard.jpg" alt="Volt Board Canvas UI">
+  </div>
+ </div>
+</section>
+
+<section id="features">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">Discover Volt Board</div>
+   <h2>One board. <span>Endless ideas.</span></h2>
+   <p>A creative workspace designed for your thoughts and imagination.</p>
+  </div>
+  <div class="features">
+   <article class="card"><div class="icon">✎</div><h3>Drawing</h3><p>Express ideas using freehand drawing tools.</p></article>
+   <article class="card"><div class="icon">◇</div><h3>Shapes & Lines</h3><p>Build and organize your sketches.</p></article>
+   <article class="card"><div class="icon">T</div><h3>Text</h3><p>Add words and notes to your canvas.</p></article>
+   <article class="card"><div class="icon">⌫</div><h3>Eraser</h3><p>Edit your work with erasing tools.</p></article>
+   <article class="card"><div class="icon">⚡</div><h3>AI Assistant</h3><p>Brainstorm with Gemini AI directly on board.</p></article>
+   <article class="card"><div class="icon">✦</div><h3>Customization</h3><p>Personalize themes, grids, and typography.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="interface" style="background: #0d151a;">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">App Interface</div>
+   <h2>Designed for <span>Focus.</span></h2>
+   <p>Explore the sleek, cyberpunk-inspired UI tailored for maximum creative output and seamless collaboration.</p>
+  </div>
+  <div class="gallery-grid">
+   <div class="gallery-item"><img src="Screenshot_20261107-153520_VoltBoard.jpg" alt="Start Whiteboard"></div>
+   <div class="gallery-item"><img src="Screenshot_20261107-153543_VoltBoard.jpg" alt="User Settings and Themes"></div>
+   <div class="gallery-item"><img src="Screenshot_20261107-153639_VoltBoard.jpg" alt="Canvas Presets"></div>
+   <div class="gallery-item"><img src="Screenshot_20261107-153710_VoltBoard.jpg" alt="AI Collaboration Assistant"></div>
+   <div class="gallery-item"><img src="Screenshot_20261107-153721_VoltBoard.jpg" alt="Developer Specs"></div>
+   <div class="gallery-item"><img src="Screenshot_20261107-153753_VoltBoard.jpg" alt="Community Feedback"></div>
+  </div>
+ </div>
+</section>
+
+<section class="showcase" id="about">
+ <div class="container showcase-grid">
+  <div>
+   <div class="eyebrow">Made for creativity</div>
+   <h2>Your thoughts deserve <span>space.</span></h2>
+   <p>Volt Board is a digital space for sketching, writing and exploring ideas.</p>
+   <ul class="checks">
+    <li>Creative drawing workspace with pen palette</li>
+    <li>Real-time 6-digit room collaboration</li>
+    <li>Zero-latency sync & hardware acceleration</li>
+    <li>Built-in AI Inference Model (Gemini)</li>
+   </ul>
+  </div>
+  <div class="board">
+   <h3>Settings & Tools</h3>
+   <p>Complete control over your environment.</p>
+   <img src="Screenshot_20261107-153812_VoltBoard.jpg" alt="Settings & Pen Palette">
+  </div>
+ </div>
+</section>
+
+<section id="download">
+ <div class="container">
+  <div class="download-box">
+   <div class="eyebrow">Get started</div>
+   <h2>Start creating with <span>Volt Board.</span></h2>
+   <p>Download the Android application and explore your creative workspace.</p>
+   <a class="btn" href="https://github.com/EdwinAntony-VibeCode/volt-board-downloads/releases/download/V1.0.0/voltboardlatest3.apk" target="_blank" rel="noopener">↓ Download APK</a>
+   <div class="small">Official GitHub release · Android APK</div>
+  </div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="container">
+  <div class="section-head">
+   <div class="eyebrow">Help centre</div>
+   <h2>Frequently asked <span>questions.</span></h2>
+  </div>
+  <div class="faq">
+   <details><summary>What is Volt Board?</summary><p>Volt Board is an Android digital whiteboard application for drawing, writing and organizing ideas collaboratively.</p></details>
+   <details><summary>How do I collaborate with others?</summary><p>You can host a new room which generates a 6-digit code. Share this code with students or teammates so they can join live.</p></details>
+   <details><summary>How do I download it?</summary><p>Tap the Download APK button to access the official release.</p></details>
+   <details><summary>Who created Volt Board?</summary><p>Volt Board is designed and engineered by Edwin Antony under the Ed-ThinkLab innovation studio.</p></details>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <a class="logo" href="#">VOLT<span>.</span>BOARD</a>
+    <p>An Ed-ThinkLab creation.</p>
+   </div>
+   <div class="social">
+    <a href="https://www.instagram.com/edwinantony__/" target="_blank" rel="noopener">Instagram ↗</a>
+    <a href="mailto:edwinantony9632@gmail.com">Email ↗</a>
+    <a href="#download">Download</a>
+   </div>
+  </div>
+  <div class="credit">
+   Made with <strong>♥</strong> by <strong>Edwin Antony</strong><br>
+   <strong>Ed-ThinkLab</strong> · © <span id="year"></span> All rights reserved.
+  </div>
+ </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+  </html>
+  
