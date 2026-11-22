@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://voltboardshowcase.netlify.app/sitemap.xml
