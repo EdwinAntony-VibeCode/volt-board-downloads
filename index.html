@@ -247,7 +247,16 @@ footer p{color:var(--muted);font-size:12px;margin-top:8px}
    <div class="eyebrow">Get started</div>
    <h2>Start creating with <span>Volt Board.</span></h2>
    <p>Download the Android application and explore your creative workspace.</p>
-   <a class="btn" href="https://github.com/EdwinAntony-VibeCode/volt-board-downloads/releases/download/V1.0.0/voltboardlatest3.apk" target="_blank" rel="noopener">↓ Download APK</a>
+   <a class="btn"
+   href="https://github.com/EdwinAntony-VibeCode/volt-board-downloads/releases/download/V1.0.0/voltboardlatest3.apk"
+   target="_blank"
+   rel="noopener"
+   onclick="gtag('event', 'download_click', {
+     'send_to': 'G-X9EV5SNQ1F',
+     'app_version': 'V1.0.0'
+   });">
+   ↓ Download APK
+</a>
    <div class="small">Official GitHub release · Android APK</div>
   </div>
  </div>
